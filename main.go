@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
+// This code starts sayHello in a separate goroutine, so the main program doesn’t wait for it to finish.
+func sayHello() {
+	fmt.Println("Hello, Goroutine")
+}
 
 func main() {
 	// loop in golang
@@ -17,7 +24,11 @@ func main() {
 	// }
 
 	// Pointers in golang
-	x := 10
-	p := &x
-	fmt.Println(*p)
+	// x := 10
+	// p := &x
+	// fmt.Println(*p)
+
+	go sayHello() // start a new go routine
+	time.Sleep(time.Second) // wait for the seconds the go routine compelte
 }
+
