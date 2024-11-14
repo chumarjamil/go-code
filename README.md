@@ -1,6 +1,6 @@
-# ![Go Logo](https://blog.golang.org/go-brand/Go-Logo/PNG/Go-Logo_Blue.png)
+# ![Go Logo](https://blog.golang.org/go-brand/Go-Logo/PNG/Go-Logo_Blue.png =200x)
 
-# Project Name
+# GO Lang REST API
 
 **Description**: This is a public project built with Go (Golang). 
 
