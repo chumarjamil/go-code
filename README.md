@@ -1,4 +1,4 @@
-<img src="https://blog.golang.org/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="400" height="200">
+<img src="https://blog.golang.org/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="400" height="400">
 
 # GO Lang REST API
 
