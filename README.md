@@ -1,6 +1,6 @@
 <img src="https://blog.golang.org/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="400" height="400">
 
-# GO Lang REST API
+# GOLang REST API
 
 **Description**: This is a public project built with Go (Golang). 
 
