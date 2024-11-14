@@ -4,10 +4,15 @@ import "fmt"
 
 
 func main() {
-	result := add(3,5)
-	fmt.Println("The result is:", result)
-}
+	// loop in golang
 
-func add(a int, b int) int {
-	return a + b
+	for i :=0; i < 5; i++ {
+		fmt.Println(i)
+	}
+
+	// Looping through it
+	nums := [] int{1,2,3,4,5}
+	for index, value := range nums {
+		fmt.Println("Index", index, "Value", value)
+	}
 }
