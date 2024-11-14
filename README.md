@@ -1,4 +1,4 @@
-# ![Go Logo](https://blog.golang.org/go-brand/Go-Logo/PNG/Go-Logo_Blue.png =200x)
+![Go Logo](https://blog.golang.org/go-brand/Go-Logo/PNG/Go-Logo_Blue.png =200x)
 
 # GO Lang REST API
 
