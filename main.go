@@ -1,34 +1,49 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"time"
+	"log"
+	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
-// This code starts sayHello in a separate goroutine, so the main program doesn’t wait for it to finish.
-func sayHello() {
-	fmt.Println("Hello, Goroutine")
+// Sample data model
+type Book struct {
+	ID string `json:"id"`
+	Title string `json:"title"`
+	Author string `json:"author"`
 }
 
+var books []Book // In memory data storage
+
 func main() {
-	// loop in golang
+	// Initialize the router
+	router := mux.NewRouter()
+	
+	// Define routes
+	router.HandleFunc("/api/books", getBooks).Methods("GET")
+	// router.HandleFunc("/api/books/{id}", getBook).Methods("GET")
+    router.HandleFunc("/api/books", createBook).Methods("POST")
+    // router.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
 
-	// for i :=0; i < 5; i++ {
-	// 	fmt.Println(i)
-	// }
+	fmt.Println("Server is running on PORT: 9090")
 
-	// // Looping through it
-	// nums := [] int{1,2,3,4,5}
-	// for index, value := range nums {
-	// 	fmt.Println("Index", index, "Value", value)
-	// }
+	log.Fatal(http.ListenAndServe(":9090", router))
+}
 
-	// Pointers in golang
-	// x := 10
-	// p := &x
-	// fmt.Println(*p)
+// Get all books
+func getBooks(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(books)
+}
 
-	go sayHello() // start a new go routine
-	time.Sleep(time.Second) // wait for the seconds the go routine compelte
+func createBook(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	var book Book
+	json.NewDecoder(r.Body).Decode(&book)
+	books = append(books, book)
+	json.NewEncoder(w).Encode(book)
 }
 
